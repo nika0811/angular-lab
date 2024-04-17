@@ -1,16 +1,13 @@
+import { NgFor, NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
-
-export interface User {
-  name: string;
-  email: string;
-}
 
 @Component({
   selector: 'app-user-list',
+  standalone: true,
+  imports: [NgFor, NgStyle],
   templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  styleUrl: './user-list.component.scss'
 })
 export class UserListComponent {
-  @Input() users: User[] = [];
-  constructor() { }
+  @Input() userList!: string[];
 }

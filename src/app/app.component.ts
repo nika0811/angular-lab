@@ -1,20 +1,23 @@
 import { Component } from '@angular/core';
-import {CounterComponent} from "./counter/counter.component";
+import { RouterOutlet } from '@angular/router';
+import { CounterComponent } from "./counter/counter.component";
 
+import { UserListComponent } from './user-list/user-list.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
   standalone: true,
-  styleUrls: ['./app.component.scss'],
-  imports: [
-    CounterComponent,]
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
+  imports: [RouterOutlet, CounterComponent, UserListComponent]
 })
 export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
+  title = 'angularapp';
+
+  handleInputValue(value: string) {
+    console.log(value);
   }
-  onValueChange(value: number) {
-    console.log(`Value changed to: ${value}`);
-  }
+
+  users = ["giorgi","lasha","bichiko","nika","natia","sofo","irakli",'davit'];
+
 }
